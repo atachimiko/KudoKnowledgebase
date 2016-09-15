@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectionHelperTest", "SelectionHelperTest\SelectionHelperTest.csproj", "{A868F74E-42D3-4BA8-9250-9AE6B3B9EA37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickZip.UserControls", "QuickZip.UserControls\QuickZip.UserControls.csproj", "{AED294F4-F7F7-4286-88D0-0122846CA526}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A868F74E-42D3-4BA8-9250-9AE6B3B9EA37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A868F74E-42D3-4BA8-9250-9AE6B3B9EA37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A868F74E-42D3-4BA8-9250-9AE6B3B9EA37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A868F74E-42D3-4BA8-9250-9AE6B3B9EA37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED294F4-F7F7-4286-88D0-0122846CA526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED294F4-F7F7-4286-88D0-0122846CA526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED294F4-F7F7-4286-88D0-0122846CA526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED294F4-F7F7-4286-88D0-0122846CA526}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

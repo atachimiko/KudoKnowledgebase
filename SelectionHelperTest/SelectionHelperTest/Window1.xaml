@@ -1,0 +1,86 @@
+﻿<Window x:Class="SelectionHelperTest.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:uc="http://www.quickzip.org/UserControls"
+    Title="WPF Multi-Selection Test" Height="300" Width="300">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="GridView.xaml" />
+                <ResourceDictionary Source="SmallIconView.xaml" />
+                <ResourceDictionary Source="IconView.xaml" />
+                <ResourceDictionary Source="ListView.xaml" />
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                        <Style.Resources>
+                            <LinearGradientBrush x:Key="fileListHotTrackBrush" EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#E8F6FD" Offset="0"/>
+                                <GradientStop Color="#D7EFFB" Offset="0.5"/>
+                                <GradientStop Color="#CCEAFF" Offset="1"/>
+                            </LinearGradientBrush>
+
+                            <LinearGradientBrush x:Key="fileListSelectionBrush" EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="White" Offset="0" />
+                                <GradientStop Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}" Offset="0.55" />
+                                <GradientStop Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}" Offset="1" />
+                            </LinearGradientBrush>
+                        </Style.Resources>
+                        <!--<Setter Property="Margin" Value="1,2,1,1"/>-->
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+
+                        <!--<Setter Property="Background" Value="{TemplateBinding ListViewItem.Background}" />-->
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Grid>
+                                        <Border Background="{TemplateBinding Background}" />
+                                        <Border Background="#BEFFFFFF" Margin="1,1">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Border Margin="2,1,2,0" Grid.Row="0" Background="#57FFFFFF" />
+                                            </Grid>
+                                        </Border>
+                                        <ContentPresenter Margin="5,0" />
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsMouseOver" Value="True" />
+                                                <Condition Property="IsSelected" Value="False"/>
+                                            </MultiTrigger.Conditions>
+                                            <Setter Property="Background" Value="{DynamicResource fileListHotTrackBrush}" />
+                                        </MultiTrigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource fileListSelectionBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="uc:SelectionHelper.IsDragging" Value="True">
+                                            <Setter Property="Background" Value="Black" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top" ItemWidth="85" >
+            <RadioButton IsChecked="True">GridView</RadioButton>
+            <RadioButton>ListView</RadioButton>
+            <RadioButton>SmallIconView</RadioButton>
+            <RadioButton>IconView</RadioButton>
+        </WrapPanel>
+        <ListView x:Name="listView" uc:SelectionHelper.EnableSelection="True" >
+
+        </ListView>
+    </DockPanel>
+</Window>

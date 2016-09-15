@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ 
+    xmlns:uc="http://www.quickzip.org/UserControls"
+    >
+
+    <DataTemplate x:Key="NameTemplate" >
+        <StackPanel Orientation="Horizontal">
+            <!--<Image x:Name="img" Source="{Binding Converter={StaticResource ati}}" Width="16"/>-->
+            <TextBlock Text="{Binding}" />
+        </StackPanel>
+    </DataTemplate>
+
+
+    <GridView x:Key="GridView">
+        <GridViewColumn Width="200" Header="Name" CellTemplate="{StaticResource NameTemplate}" />
+    </GridView>
+    
+   
+</ResourceDictionary>
